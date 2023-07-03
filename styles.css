@@ -1,0 +1,404 @@
+* {
+    font-size: 1.25rem;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(rgb(207, 222, 226), rgb(166, 211, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*Style the calculator*/
+#calculator {
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr); 
+    grid-gap: 0.5rem;
+    grid-template-areas: 
+    'screen screen screen screen'
+    'button button button backspace'
+    'button button button backspace'
+    'button button button clear'
+    'equals equals equals clear';
+    padding:0.5rem;
+    background: linear-gradient(lightgray, lightslategray);
+    border-radius: .75rem;
+    grid-area: calculator;
+    box-shadow: .1rem .1rem;
+    margin: 0 0;
+    width: 27.5rem;
+    height: 35rem;
+    justify-self: center;
+}
+
+#result {
+    border: 1px solid black;
+    grid-area: screen;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: inherit;
+    box-shadow: inherit;
+    color: black;
+    font-size: 2rem;
+}
+
+.button {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    box-shadow: inherit;
+}
+
+.button:active {
+    background: radial-gradient(rgb(155, 195, 255), rgb(138, 226, 255), cyan);
+    box-shadow: .15rem .15rem .15rem .15rem;
+}
+
+#equals {
+    grid-area: equals;
+    font-size: 3rem;
+}
+
+#clear {
+    grid-area: clear;
+    font-size: 1rem;
+}
+
+#backspace {
+    grid-area: backspace;
+    font-size: 1rem;
+}
+
+.note {
+    background: linear-gradient(135deg, lightcyan, rgb(114, 255, 255));
+}
+
+.note:hover {
+    background: radial-gradient(white, rgb(61, 223, 223));
+}
+
+.accidental {
+    background: linear-gradient(135deg, rgb(138, 226, 255), rgb(0, 162, 255));
+}
+
+.accidental:hover {
+    background: radial-gradient(white, rgb(0, 162, 255));
+
+}
+
+.operation-button {
+    background: linear-gradient(135deg, rgb(155, 195, 255), rgb(70, 144, 255));
+}
+
+.operation-button:hover {
+    background: radial-gradient(white, rgb(70, 144, 255));
+}
+
+/*Style the main content*/
+#main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'side-bar calculator history';
+    margin: 1rem;
+}
+
+/* Header */
+#header {
+    text-align: center;
+}
+
+#header h1 {
+    font-size: larger;
+}
+
+#header p {
+    font-size: large;
+}
+
+/* History */ 
+
+#history-box {
+    grid-area: history;
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 27.5rem;
+    height: 35rem;
+    justify-self: left;
+}
+
+#history hr {
+    width: 90%;
+}
+
+#history h2 {
+    color: gray;
+    font-weight: 100;
+}
+
+#history {
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    overflow-y: auto;
+    height: 100%;
+}
+
+#history.display-box {
+    text-align: center;
+    background-color: aliceblue;
+    height: 100%;
+}
+
+#history.display-box p {
+    font-size: 1.25rem;
+}
+
+#clear_history {
+    border-radius: 0.75rem;
+    box-shadow: .1rem .1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    min-height: 2.5rem;
+
+}
+
+#history-header {
+    font-size: large;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 3rem;
+}
+
+.hit-counter {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer p {
+    font-size: small;    
+}
+
+footer a {
+    color: black;
+}
+
+#footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+#footer-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 3rem;
+}
+
+#footer-left {
+    display: flex;
+    flex-direction: row;
+    margin-left: 3rem;
+}
+
+#donate {
+    display: flex;
+    align-items: center;
+}
+
+/* Side-bar */
+
+#side-bar {
+    margin-left: 3rem;
+    border-radius: 2rem;
+    grid-area: side-bar;
+    display: grid;
+    grid-template-areas: 
+    'notes'
+    'contact';
+    grid-template-rows: auto 1fr;
+    height: 35rem;
+    justify-self: right; 
+    min-width: 27.5rem;
+    max-width: 55rem;
+}
+
+#side-bar h3 {
+    font-size: x-large;
+    margin: 0 0 0.0;
+}
+
+#side-bar ul li {
+    font-size: large;
+}
+
+#note-section {
+    grid-area: notes;
+    
+}
+
+#contact-form {
+    grid-area: contact;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form input {
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    height: 10%;
+    width: 100%;
+}
+
+#contact-form textarea {
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: .1rem .1rem;
+    height: 100%;
+    margin-top: 0.5rem;
+}
+
+#form-submit {
+    border-radius: 0.75rem;
+    box-shadow: .1rem .1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    min-height: 2.5rem;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+width: 20px;
+}
+
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey;
+border-radius: 10rem;
+}
+
+::-webkit-scrollbar-thumb {
+background: rgba(122, 184, 255, 0.61);
+border-radius: 10px;
+}
+
+/*media queries*/
+@media only screen and (max-width: 1815px) and (min-width: 1216px){
+    #main-content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        'calculator history'
+        'side-bar side-bar';
+    }
+
+    #side-bar {
+        margin: 1rem;
+        justify-self: center;
+    }
+
+    #calculator {
+        margin: 1rem;
+        justify-self: right;
+    }
+
+    #history-box {
+        margin: 1rem;
+        justify-self: left;
+    }
+
+    footer {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 1215px) and (min-width: 651px ){
+    #main-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        'calculator'
+        'history'
+        'side-bar';
+    }
+
+    #side-bar {
+        margin: 1rem;
+        justify-self: center;
+    }
+
+    #calculator {
+        margin: 1rem;
+        justify-self: center;
+    }
+
+    #history-box {
+        margin: 1rem;
+        justify-self: center;
+    }
+
+    footer {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    #header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    #main-content {
+        justify-self: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        'calculator'
+        'history'
+        'side-bar';
+        margin: auto;
+    }
+
+    #side-bar {
+        margin: 0.5rem 0;
+        justify-self: center;
+        width: 100%;
+    }
+
+    #calculator {
+        margin: 0 0;
+        justify-self: center;
+        width: 100%;
+    }
+
+    #history-box {
+        margin: 0.5rem 0;
+        justify-self: center;
+        width: 100%;
+    }
+
+    footer {
+        margin: 0;
+    }
+}

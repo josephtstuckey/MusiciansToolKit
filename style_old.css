@@ -1,0 +1,443 @@
+* {
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+html {
+    width: auto;
+    height: 100%;
+}
+
+body {
+    height: auto;
+    display: inline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(rgb(207, 222, 226), rgb(166, 211, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+#calculator {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr); 
+    grid-gap: 0.5rem;
+    grid-template-areas: 
+    'screen screen screen screen'
+    'button button button backspace'
+    'button button button backspace'
+    'button button button clear'
+    'equals equals equals clear';
+    padding:0.5rem;
+    background: linear-gradient(lightgray, lightslategray);
+    border-radius: .75rem;
+    grid-area: calculator;
+    box-shadow: .1rem .1rem;
+}
+
+#result {
+    border: 1px solid black;
+    grid-area: screen;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: inherit;
+    box-shadow: inherit;
+    color: black;
+    width: auto;
+}
+
+.button {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    box-shadow: inherit;
+}
+
+.button:active {
+    background: radial-gradient(rgb(155, 195, 255), rgb(138, 226, 255), cyan);
+    box-shadow: .15rem .15rem .15rem .15rem;
+}
+
+#equals {
+    grid-area: equals;
+    font-size: rem;
+}
+
+#plus {
+    grid-area: plus;
+}
+
+#clear {
+    grid-area: clear;
+    font-size: .75rem;
+}
+
+#backspace {
+    grid-area: backspace;
+    font-size: .75rem;
+}
+
+.note {
+    background: linear-gradient(135deg, lightcyan, rgb(114, 255, 255))
+}
+
+.note:hover {
+    background: radial-gradient(white, rgb(61, 223, 223));
+}
+
+.accidental {
+    background: linear-gradient(135deg, rgb(138, 226, 255), rgb(0, 162, 255));
+}
+
+.accidental:hover {
+    background: radial-gradient(white, rgb(0, 162, 255));
+
+}
+
+.operation-button {
+    background: linear-gradient(135deg, rgb(155, 195, 255), rgb(70, 144, 255));
+}
+
+.operation-button:hover {
+    background: radial-gradient(white, rgb(70, 144, 255));
+}
+
+#header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#header h1 {
+    font-size: 2rem;
+}
+
+#header p {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+#main-content {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 25rem;
+    grid-template-areas: 'side-bar calculator history';
+    justify-content: center;
+    height: fit-content;
+    padding: 0 0 0.5rem 0;
+}
+
+#history-box {
+    width: 20rem;
+    grid-area: history;
+    max-height: 100%;
+}
+
+#history h2 {
+    color: gray;
+    font-weight: 100;
+}
+
+#history {
+    margin-left: 1rem;
+    padding: 1rem;
+    width: 90%;
+    height: 90%;
+    max-height: 10rem;
+    min-height: 10rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    overflow-y: auto;
+}
+
+#history.display-box {
+    text-align: center;
+    background-color: aliceblue;
+}
+
+#history.display-box p {
+    font-size: 1.25rem;
+}
+
+#clear_history {
+    margin-left: 1rem;
+    padding: 0;
+    width: 90%;
+    height: 10%;
+    min-height: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: .1rem .1rem;
+    align-items: center;
+}
+
+#side-bar {
+    padding: 1rem;
+    width: 90%;
+    border-radius: 2rem;
+    justify-self: right;
+    grid-area: side-bar;
+    display: grid;
+    grid-template-areas: 
+    'notes'
+    'contact';
+    grid-template-rows: 1fr 1fr;
+}
+
+#history-header {
+    font-size: large;
+}
+
+::-webkit-scrollbar {
+width: 20px;
+}
+
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey;
+border-radius: 10rem;
+}
+
+::-webkit-scrollbar-thumb {
+background: rgba(122, 184, 255, 0.61);
+border-radius: 10px;
+}
+
+.hit-counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer p {
+    font-size: small;    
+}
+
+footer a {
+    color: black;
+}
+
+#footer-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    margin: 1rem 0 0 0;
+}
+
+#footer-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 1rem;
+}
+
+#footer-left {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1rem;
+}
+
+#donate {
+    margin-left: 1rem;
+    padding: 0;
+}
+
+#side-bar h3 {
+    font-size: x-large;
+    margin: 0 0 0.0;
+    height: 10%;
+}
+
+#side-bar ul li {
+    font-size: large;
+}
+
+footer {
+    max-height: 1rem;
+}
+
+#note-section {
+    grid-area: notes;
+}
+
+#contact-form {
+    grid-area: contact;
+}
+
+#contact-form input {
+    border-radius: 0.25rem;
+    height: 12%;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+#contact-form textarea {
+    width: 100%;
+    height: 46.5%;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: .1rem .1rem;
+}
+
+#form-submit {
+    width: 100%;
+    height: 15%;
+    border-radius: 0.75rem;
+    box-shadow: .1rem .1rem;
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 615px) {
+
+    #main-content{
+        width: 375px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        'calculator'
+        'history'
+        'side-bar';
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header h1 {
+        font-size: large;
+    }
+
+    #header p {
+        font-size: medium;
+    }
+
+    #side-bar {
+        padding: 1rem;
+        height: 100%;
+        border-radius: 2rem;
+        justify-self: right;
+        grid-area: side-bar;
+    }
+
+    #calculator {
+        margin-left: auto;
+        margin-right: auto;
+        grid-area: calculator;
+    }
+
+    #history-box {
+        margin: auto;
+        padding: 0.5rem 0;
+        grid-area: history;
+        min-height: fit-content;
+        width: 100%;
+    }
+
+    #history.display-box {
+        margin: auto;
+        width: 100%;
+    }
+
+    #clear_history {
+        margin: auto;
+        padding: 1rem;
+    }
+
+    .button {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .operation-button {
+        height: auto;
+        width: auto;
+    }
+    
+}
+
+@media only screen and (max-width: 614px){
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #main-content{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        'calculator'
+        'history'
+        'side-bar';
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header h1 {
+        font-size: large;
+    }
+
+    #header p {
+        font-size: medium;
+    }
+
+    #side-bar {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 2rem;
+        grid-area: side-bar;
+    }
+
+    #calculator {
+        margin-left: auto;
+        margin-right: auto;
+        grid-area: calculator;
+        width: 100%;
+    }
+
+    #history-box {
+        grid-area: history;
+        width: 100%;
+    }
+
+    #history-box p {
+        padding: 0;
+        margin: 0.5rem;
+        font-size: 1rem;
+    }
+
+    #history.display-box {
+        width: 100%;
+        height: 10rem;
+        margin: 0;
+        padding: 0.5rem;
+    }
+
+    #clear_history {
+        margin: auto;
+        padding: 1rem;
+    }
+
+    .button {
+        width: auto;
+        height: auto;
+    }
+
+    .operation-button {
+        height: auto;
+        width: auto;
+    }
+
+    #result {
+        font-size: 1.25rem;
+    }
+}
+

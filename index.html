@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Chord Calculator</title>
+        <link rel="stylesheet" href="/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    </head>
+    <body>
+
+        <div id="header">
+            <h1>Chord Calculator</h1>
+            <p>Enter up to six notes</p>
+        </div>
+
+        <div id="main-content">
+
+            <div id="side-bar">
+                <div id="note-section">
+                    <h3>Notes:</h3>
+                    <hr>
+                    
+                    <ul style="margin: 0; width: 90%;">
+                        <li>This calculator currently does not support double flats or double sharps</li>
+                        <li>Some chords can have more than one name depending on the context in which they are used, this calculator tries to identify the chord based off of the first note entered, if no chord is found, it cycles through the rest of the notes until a match is found. </li>
+                        <li>There may be some chords missing, if you enter a chord and it is not recognized, please email us the list of notes entered!</li>
+                    </ul>
+
+                    <hr>
+                </div>
+
+                <form id='contact-form' action="mailto:josephtstuckey@gmail.com" method="post" enctype="text/plain">
+                    <h3>Contact Us</h3>
+                    <input type="text" id="name" name='name' placeholder="Your Name" required>
+                    <input type="email" id="email" name='email' placeholder="Your Email" required>
+                    <textarea id="message" name="message"></textarea>
+                    <button type="submit" id='form-submit' class="button operation-button">Send</button>
+                </form>
+                
+            </div>
+
+            <div id="calculator">
+                <input type="text" id="result" class="display-box" placeholder="Lowest Note First" disabled>
+                <input type='button' accessKey='a' value="A" class="button note" id="a" onclick="display(' A')">
+                <input type='button' accessKey='b' value="B" class="button note" id="b" onclick="display(' B')">
+                <input type='button' accessKey='c' value="C" class="button note" id="c" onclick="display(' C')">
+                <input type="button" accessKey='delete' value='Clear' class='button operation-button' id="clear" onclick="clearScreen()">
+                <input type='button' accessKey='d' value="D" class="button note" id="d" onclick="display(' D')">
+                <input type='button' accessKey='e' value="E" class="button note" id="e" onclick="display(' E')">
+                <input type='button' accessKey='f' value="F" class="button note" id="f" onclick="display(' F')">
+                <input type="button" accessKey='backspace' class='button operation-button' id="backspace" value="Back" onclick="backspace()">
+                <input type='button' accessKey='@' value='♭' class='button accidental' id="flat" onclick="backspace; display('♭')">
+                <input type='button' accessKey='g' value="G" class="button note" id="g" onclick="display(' G')">
+                <input type="button" accessKey='#' value="#" class='button accidental' id="sharp" onclick="backspace; display('#')">
+                <input type="button" accessKey='enter' value="=" class="button operation-button" id="equals" onclick="calculate()">
+            </div>
+
+            <div id="history-box">
+                <div id="history" class="display-box">
+                    <h2 id="history-header">History</h2>
+                    <hr>
+                </div>
+                <input type="button" class='button operation-button' name="clear_history" id="clear_history" value="Clear History" onclick="clearHistory()">
+            </div>
+        </div>        
+
+        <footer>
+            <div id="footer-container">
+                <div id='footer-left'>
+                    <form action="https://www.paypal.com/donate" method="post" target="_top" id="donate">
+                        <input type="hidden" name="business" value="34TJSK297F2CL" />
+                        <input type="hidden" name="no_recurring" value="0" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                    </form>  
+                </div>                      
+                <div id="footer-right">
+                    <div class="hit-counter">
+                        <p>Unique: </p><a href="https://www.hitwebcounter.com" target="_blank"></a>
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=8042452&style=0008&nbdigits=5&type=ip&initCount=0" title="Free Counter" Alt="web counter"   border="0" />      
+                    </div>      
+                    <div class="hit-counter">
+                        <!-- hitwebcounter Code START -->
+                        <p>Total: </p><a href="https://www.hitwebcounter.com" target="_blank"></a>  
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=8042454&style=0008&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" />      
+                    </div>                  
+                </div>
+            </div>
+        </footer>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
